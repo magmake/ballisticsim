@@ -5,7 +5,9 @@ import java.awt.event.*;
 
 public class Controller
 {
-    private final int TICK_RATE = 200;   //HOW OFTEN Draw() IS CALLED. IN MILLISECONDS
+    private final int TICK_RATE = 17;   //HOW OFTEN Draw() IS CALLED. IN MILLISECONDS
+    static public final int DEF_WIND_WIDTH = 700;
+    static public final int DEF_WIND_HEIGHT = 400;
     private boolean main_loop = true;
     Bullet bullet;
     Cannon cannon;
@@ -14,10 +16,14 @@ public class Controller
     
     Controller()
     {
-        bullet = new Bullet();
-        cannon = new Cannon();
-        environment = new Environment();
         view = new View();
+        //FIX FIXED VALUES!!!!!
+        bullet = new Bullet(0, DEF_WIND_HEIGHT, 10, 40);
+        cannon = new Cannon(0, DEF_WIND_HEIGHT, 30, 10, 40);
+        environment = new Environment();
+        
+        view.AddObject(cannon);
+        view.AddObject(bullet);
     }
     private void Start()
     {
@@ -46,7 +52,8 @@ public class Controller
     }
     private void Update(double dt)
     {
-        
+        bullet.setPos(bullet.getXPos() + (1 * dt/5), bullet.getYPos() - (1 * dt/5));
+        System.out.println(bullet.getXPos() + " " + bullet.getYPos());
     }
     private void Draw()
     {

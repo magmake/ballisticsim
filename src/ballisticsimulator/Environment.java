@@ -6,6 +6,12 @@
 package ballisticsimulator;
 
 
-public class Environment {
+public class Environment
+{
+    double gravity;
     
+    Environment()
+    {
+        
+    }
 }
