@@ -8,10 +8,20 @@ package ballisticsimulator;
 
 public class Environment
 {
-    double gravity;
+    private double gravity;
+    private double drag;
     
     Environment()
     {
-        
+        gravity = 9.8;
+        drag = 0.9;
+    }
+    public double applyDrag(double a)
+    {
+        return (-a * (1 - drag));
+    }
+    public double applyGravity()
+    {
+        return -gravity;
     }
 }

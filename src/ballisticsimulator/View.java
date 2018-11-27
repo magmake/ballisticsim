@@ -1,8 +1,7 @@
 package ballisticsimulator;
 
 import java.awt.*;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class View extends JFrame
 {

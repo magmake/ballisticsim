@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/Bullet.java</file>
-            <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/Cannon.java</file>
-            <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/Environment.java</file>
-            <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/Controller.java</file>
-            <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/View.java</file>
+            <file>file:/G:/Programming/java/BallisticSimulator/src/ballisticsimulator/View.java</file>
+            <file>file:/G:/Programming/java/BallisticSimulator/src/ballisticsimulator/Controller.java</file>
+            <file>file:/G:/Programming/java/BallisticSimulator/src/ballisticsimulator/Cannon.java</file>
+            <file>file:/G:/Programming/java/BallisticSimulator/src/ballisticsimulator/Environment.java</file>
+            <file>file:/G:/Programming/java/BallisticSimulator/src/ballisticsimulator/Bullet.java</file>
         </group>
     </open-files>
 </project-private>

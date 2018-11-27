@@ -5,9 +5,10 @@ import java.awt.event.*;
 
 public class Controller
 {
-    private final int TICK_RATE = 17;   //HOW OFTEN Draw() IS CALLED. IN MILLISECONDS
+    private final double TICK_RATE = 0.01;   //HOW OFTEN Draw() IS CALLED. IN MILLISECONDS
     static public final int DEF_WIND_WIDTH = 700;
     static public final int DEF_WIND_HEIGHT = 400;
+    static public final double SCALING_FACTOR = 0.00000001;
     private boolean main_loop = true;
     Bullet bullet;
     Cannon cannon;
@@ -18,8 +19,8 @@ public class Controller
     {
         view = new View();
         //FIX FIXED VALUES!!!!!
-        bullet = new Bullet(0, DEF_WIND_HEIGHT, 10, 40);
-        cannon = new Cannon(0, DEF_WIND_HEIGHT, 30, 10, 40);
+        bullet = new Bullet(0, DEF_WIND_HEIGHT, 10, 15);
+        cannon = new Cannon(0, DEF_WIND_HEIGHT, 30, 10, 15);
         environment = new Environment();
         
         view.AddObject(cannon);
@@ -29,7 +30,7 @@ public class Controller
     {
         long prev_time = System.nanoTime();
         long time = 0;
-        double dt = 0;  //DELTATIME. SHOULD BE CHANGED TO INT OR LONG
+        double dt = 0;
         double draw_timer = 0;
         while(main_loop)
         {
@@ -45,15 +46,17 @@ public class Controller
             }
             
             //TIMER STUFF
-            dt = (time - prev_time) / 1000000.0;
+            dt = (time - prev_time) / 1000000000.0;
             draw_timer = draw_timer + dt;
+            //System.out.println(draw_timer);
             prev_time = time;
         }
     }
     private void Update(double dt)
     {
-        bullet.setPos(bullet.getXPos() + (1 * dt/5), bullet.getYPos() - (1 * dt/5));
-        System.out.println(bullet.getXPos() + " " + bullet.getYPos());
+        bullet.setAcc(0, environment.applyGravity());
+        bullet.setAcc(environment.applyDrag(bullet.getXAcc()), environment.applyDrag(bullet.getYAcc()));
+        bullet.applyForces(dt);
     }
     private void Draw()
     {
