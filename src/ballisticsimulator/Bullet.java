@@ -21,19 +21,27 @@ public class Bullet extends JPanel
         ypos = y;
         radius = r;
         angle = a;
-        mass = 100.0;
-        force = 100000000;
+        mass = 1;
+        force = 1000;
         xacc = (Math.cos(Math.toRadians(angle)) * (force / mass)) * Controller.SCALING_FACTOR;
         yacc = (Math.sin(Math.toRadians(angle)) * (force / mass)) * Controller.SCALING_FACTOR;
         setOpaque(false);
     }
-    public void applyForces(double dt)
+    public void applyVel(double dt)
     {
         xvel = xvel + (xacc * dt);
         yvel = yvel + (yacc * dt);
+    }
+    public void test(double dt, double xa, double ya)
+    {
+        xvel = xvel + xa;
+        yvel = yvel + ya;
+    }
+    public void updatePos()
+    {
         xpos = xpos + xvel;
         ypos = ypos - yvel;
-        System.out.println(xacc + " " + yacc);
+        System.out.println(xpos + " " + ypos);
     }
     public double getXAcc()
     {

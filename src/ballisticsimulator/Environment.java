@@ -14,11 +14,11 @@ public class Environment
     Environment()
     {
         gravity = 9.8;
-        drag = 0.9;
+        drag = 0.1;
     }
     public double applyDrag(double a)
     {
-        return (-a * (1 - drag));
+        return -a * drag;
     }
     public double applyGravity()
     {
