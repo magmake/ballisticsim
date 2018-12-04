@@ -16,10 +16,12 @@ public class Controller
     View view;
     Ruler ruler;
     InputGUI gui;
+    EndScreen loppuruutu;
     
     Controller()
     {
         KeyListener listener = new KeyInput();
+        loppuruutu = new EndScreen();
         view = new View(listener);
         Initialize();
     }
@@ -73,6 +75,15 @@ public class Controller
             //System.out.println(draw_timer);
             prev_time = time;
             
+            if (bullet.getYpos() > 400)
+            {
+                main_loop = false;
+                loppuruutu.avaaLoppuikkuna(bullet.getXpos());
+                cannon.setVisible(false);
+                ruler.setVisible(false);
+                Initialize();
+                prev_time = System.nanoTime();
+            }
             if (reset == true)
             {
                 //RESET THE SIMULATION FROM KEYINPUT

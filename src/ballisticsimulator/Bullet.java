@@ -41,6 +41,14 @@ public class Bullet extends JPanel
     {
         mass = m;
     }
+    public double getYpos()
+    {
+        return ypos;
+    }
+    public double getXpos()
+    {
+        return xpos;
+    }
     public void calculateAcc()
     {
         //SHOULD BE CALLED WHEN INITIALIZING
@@ -66,6 +74,8 @@ public class Bullet extends JPanel
         //JUST A METHOD TO UPDATE X & Y POSITION
         xpos = xpos + xvel;
         ypos = ypos - yvel;
+        // DEBUG
+        //System.out.println(ypos);
         //System.out.println(xacc + " " + yacc);
     }
     @Override
