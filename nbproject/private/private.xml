@@ -6,9 +6,11 @@
             <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/Bullet.java</file>
             <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/Cannon.java</file>
             <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/Ruler.java</file>
+            <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/InputGUI.java</file>
             <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/Environment.java</file>
             <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/Controller.java</file>
             <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/View.java</file>
+            <file>file:/C:/PROGRAMMING/java/ballistic-sim/src/ballisticsimulator/KeyInput.java</file>
         </group>
     </open-files>
 </project-private>

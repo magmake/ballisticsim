@@ -15,9 +15,9 @@ public class Ruler extends JPanel
     private final int startPosX, startPosY;
     private Color color = Color.BLACK;
     
-    Ruler(int ls)
+    Ruler()
     {
-        lineSpacing = ls;
+        lineSpacing = 10;
         startPosX = 0;
         startPosY = Controller.DEF_WIND_HEIGHT;
         setOpaque(false);

@@ -13,15 +13,19 @@ public class Environment
     
     Environment()
     {
-        gravity = 9.8;
-        drag = 0.1;
+        //gravity = 500;
+        drag = 1; //ACTUALLY JUST THE SPEED OF THE PROJECTILE. DOESN'T WORK AS INTEDED
     }
-    public double applyDrag(double a)
+    public double getDrag()
     {
-        return -a * drag;
+        return drag;
     }
-    public double applyGravity()
+    public void setGravity(double g)
     {
-        return -gravity;
+        gravity = g;
+    }
+    public double getGravity()
+    {
+        return gravity;
     }
 }

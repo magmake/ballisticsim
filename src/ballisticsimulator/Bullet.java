@@ -15,48 +15,59 @@ public class Bullet extends JPanel
     private double force, xacc, yacc, xvel, yvel, mass;
     private Color color = Color.BLACK;
     
-    Bullet(int x, int y, int r, int a)
+    Bullet(int x, int y, int r)
     {
         xpos = x;
         ypos = y;
+        xvel = 0;
+        yvel = 0; 
+        xacc = 0;
+        yacc = 0;
         radius = r;
-        angle = a;
-        mass = 1;
-        force = 1000;
-        xacc = (Math.cos(Math.toRadians(angle)) * (force / mass)) * Controller.SCALING_FACTOR;
-        yacc = (Math.sin(Math.toRadians(angle)) * (force / mass)) * Controller.SCALING_FACTOR;
+        //angle = a;
+        //mass = 5;
+        //force = 5000;
         setOpaque(false);
     }
-    public void applyVel(double dt)
+    public void setForce(double f)
     {
-        xvel = xvel + (xacc * dt);
-        yvel = yvel + (yacc * dt);
+        force = f;
     }
-    public void test(double dt, double xa, double ya)
+    public void setAngle(double a)
     {
-        xvel = xvel + xa;
-        yvel = yvel + ya;
+        angle = a;
+    }
+    public void setMass(double m)
+    {
+        mass = m;
+    }
+    public void calculateAcc()
+    {
+        //SHOULD BE CALLED WHEN INITIALIZING
+        xacc = (Math.cos(Math.toRadians(angle)) * (force / mass));
+        yacc = (Math.sin(Math.toRadians(angle)) * (force / mass));
+    }
+    public void applyPhysics(double dt, double drag, double g)
+    {
+        //PSEUDOPHYSICS! DON'T WORK PROPERLY
+        xvel = xvel + xacc;
+        yvel = yvel + yacc;
+        
+        xacc = xacc - xacc * drag * dt;
+        yacc = yacc - yacc * drag * dt;
+        yacc = yacc - g * drag * dt;
+        
+        xvel = xvel * drag * dt;
+        yvel = yvel * drag * dt;
+        
     }
     public void updatePos()
     {
+        //JUST A METHOD TO UPDATE X & Y POSITION
         xpos = xpos + xvel;
         ypos = ypos - yvel;
-        System.out.println(xpos + " " + ypos);
+        //System.out.println(xacc + " " + yacc);
     }
-    public double getXAcc()
-    {
-        return xacc;
-    }
-    public double getYAcc()
-    {
-        return yacc;
-    }
-    public void setAcc(double xa, double ya)
-    {
-        xacc = xacc + xa * Controller.SCALING_FACTOR;
-        yacc = yacc + ya * Controller.SCALING_FACTOR;
-    }
-    
     @Override
     public Dimension getPreferredSize()
     {

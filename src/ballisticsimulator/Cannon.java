@@ -11,17 +11,22 @@ import javax.swing.JPanel;
 
 public class Cannon extends JPanel
 {
-    private int xpos, ypos, xsize, ysize, angle;
+    private int xpos, ypos, xsize, ysize;
+    private double angle;
     private Color color = Color.BLACK;
     
-    Cannon(int x, int y, int xs, int ys, int a)
+    Cannon(int x, int y, int xs, int ys)
     {
         xpos = x;
         ypos = y;
         xsize = xs;
         ysize = ys;
-        angle = a;
+        //angle = a;
         setOpaque(false);
+    }
+    public void setAngle(double a)
+    {
+        angle = a;
     }
     @Override
     public Dimension getPreferredSize()
